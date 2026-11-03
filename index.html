@@ -2,185 +2,292 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="OrbaGrace — bookings, payments, staff and money in one place. Join the waitlist for early access." />
+  <meta name="theme-color" content="#f7f5ef" />
+  <title>OrbaGrace — Join the waitlist</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <!-- Favicon (simplified mark — reads at any size) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='22' fill='%23f7f5ef'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f7f5ef'/%3E%3Ccircle cx='50' cy='50' r='38' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='18' fill='%23f7f5ef'/%3E%3C/svg%3E" />
 
-  <meta
-    name="description"
-    content="Join the OrbaGrace waitlist and be among the first to get access."
-  />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OrbaGrace" />
+  <meta property="og:title" content="OrbaGrace — Run your business. Know where it stands." />
+  <meta property="og:description" content="Bookings, payments, staff and money in one place — so you stop guessing and start growing. Join the waitlist for early access." />
+  <meta property="og:url" content="https://orbagrace.vercel.app/" />
+  <meta property="og:image" content="https://orbagrace.vercel.app/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="OrbaGrace — Run your business. Know where it stands." />
 
-  <title>OrbaGrace — Coming Soon</title>
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OrbaGrace — Run your business. Know where it stands." />
+  <meta name="twitter:description" content="Bookings, payments, staff and money in one place. Join the waitlist for early access." />
+  <meta name="twitter:image" content="https://orbagrace.vercel.app/og-image.png" />
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  />
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-  />
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <link
-    rel="stylesheet"
-    href="style.css"
-  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-  <header class="site-header">
-    <div class="container header-inner">
-
-      <div class="brand">
-        OrbaGrace
-      </div>
-
-      <span class="header-label">
-        Coming soon
-      </span>
-
+  <header class="navbar" id="navbar">
+    <div class="navbar__bar">
+      <a href="#top" class="navbar__brand">OrbaGrace</a>
+      <a href="#waitlist" class="navbar__cta">
+        <span>Join waitlist</span>
+        <span class="navbar__cta-arrow" aria-hidden="true">&#8599;</span>
+      </a>
     </div>
   </header>
 
+  <main id="top">
 
-  <main>
-
+    <!-- 1. HERO -->
     <section class="hero">
-      <div class="container hero-container">
+      <div class="hero__background" aria-hidden="true">
+        <video
+          class="hero__video"
+          src="/owner-in-control.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+        ></video>
+        <div class="hero__video-overlay"></div>
+      </div>
 
-        <div class="hero-content">
+      <div class="hero__content">
+        <h1 class="hero__title">
+          Run your business.<br />Know where it stands.
+        </h1>
 
-          <p class="eyebrow">
-            Early access
-          </p>
+        <p class="hero__description">
+          Bookings, payments, staff and money in one place &mdash; so you stop
+          guessing and start growing.
+        </p>
 
-          <h1>
-            Run your business.
-            <span>All in one place.</span>
-          </h1>
+        <a href="#waitlist" class="hero__cta">Join the waitlist</a>
 
-          <p class="hero-description">
-            Bookings, clients, staff, payments, invoices,
-            expenses, and more — connected in one workspace.
-          </p>
-
-          <a
-            class="button"
-            href="#waitlist"
-          >
-            Join the waitlist
-          </a>
-
-          <p class="hero-note">
-            OrbaGrace is coming soon.
-          </p>
-
-        </div>
-
+        <p class="hero__note">
+          OrbaGrace is launching soon.
+        </p>
       </div>
     </section>
 
+    <!-- 2. THE PROBLEM -->
+    <section class="problem">
+      <div class="problem__content">
+        <p class="problem__label">The problem</p>
+        <h2 class="problem__statement">
+          Clients book in your DMs.<br />
+          Payments land in your bank app.<br />
+          Staff figures live in your head.
+        </h2>
+        <p class="problem__punch">
+          So when someone asks <em>&ldquo;How's business?&rdquo;</em>, you're not sure.
+        </p>
+      </div>
+    </section>
 
-    <section class="supporting">
-      <div class="container">
+    <!-- 3. WHAT CHANGES -->
+    <section class="changes">
+      <div class="changes__content">
 
-        <div class="supporting-content">
+        <div class="changes__head">
+          <p class="changes__label">What changes</p>
+          <h2 class="changes__title">Four things, immediately.</h2>
+        </div>
 
-          <div class="supporting-heading">
+        <div class="changes__grid">
 
-            <p class="eyebrow">
-              OrbaGrace
+          <article class="change">
+            <p class="change__number">01</p>
+            <h3 class="change__title">Clients book themselves.</h3>
+            <p class="change__text">
+              Share one link and they pick a time &mdash; no back-and-forth,
+              no double bookings.
             </p>
+          </article>
 
-            <h2>
-              Everything connected.
-            </h2>
+          <article class="change">
+            <p class="change__number">02</p>
+            <h3 class="change__title">You always know who has paid.</h3>
+            <p class="change__text">
+              Payments tracked against every invoice, part-payments included.
+            </p>
+          </article>
 
-          </div>
+          <article class="change">
+            <p class="change__number">03</p>
+            <h3 class="change__title">Your team's pay is worked out for you.</h3>
+            <p class="change__text">
+              Commission calculated from the work they actually did &mdash;
+              not from guesses.
+            </p>
+          </article>
 
-          <p class="supporting-description">
-            From booking to payment, from clients to business
-            insights — OrbaGrace brings the moving parts of
-            your business together.
-          </p>
+          <article class="change">
+            <p class="change__number">04</p>
+            <h3 class="change__title">Ask your business a question.</h3>
+            <p class="change__text">
+              Get a plain-English answer from your own numbers, plus a weekly
+              report every Monday.
+            </p>
+          </article>
 
         </div>
-
       </div>
     </section>
 
+    <!-- 4. WHO IT'S FOR -->
+    <section class="audience">
+      <div class="audience__content">
+        <p class="audience__label">Who it's for</p>
+        <h2 class="audience__title">
+          Salons, spas, clinics, barbershops and studios &mdash; anywhere
+          clients book appointments.
+        </h2>
+      </div>
+    </section>
 
-    <section
-      class="waitlist-section"
-      id="waitlist"
-    >
-      <div class="container waitlist-container">
+    <!-- 5. HOW IT WORKS -->
+    <section class="how">
+      <div class="how__content">
 
-        <div class="waitlist-heading">
-
-          <p class="eyebrow">
-            Early access
-          </p>
-
-          <h2>
-            Be first in line.
-          </h2>
-
-          <p>
-            Join the OrbaGrace waitlist and be among the
-            first to get access.
-          </p>
-
+        <div class="how__head">
+          <p class="how__label">How it works</p>
+          <h2 class="how__title">Three steps.</h2>
         </div>
 
+        <ol class="how__steps">
+          <li class="how__step">
+            <span class="how__step-number">1</span>
+            <div class="how__step-body">
+              <h3 class="how__step-title">Set up your business and team.</h3>
+              <p class="how__step-text">
+                Add your branches, staff, services and prices.
+              </p>
+            </div>
+          </li>
 
-        <div class="tally-wrapper">
+          <li class="how__step">
+            <span class="how__step-number">2</span>
+            <div class="how__step-body">
+              <h3 class="how__step-title">Share your booking link.</h3>
+              <p class="how__step-text">
+                Your clients pick a time and get booked &mdash; automatically.
+              </p>
+            </div>
+          </li>
 
+          <li class="how__step">
+            <span class="how__step-number">3</span>
+            <div class="how__step-body">
+              <h3 class="how__step-title">Run everything from one dashboard.</h3>
+              <p class="how__step-text">
+                Bookings, money, staff, and insight &mdash; all in one place.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 7. WAITLIST -->
+    <section class="waitlist" id="waitlist">
+      <div class="waitlist__content">
+        <div class="waitlist__head">
+          <p class="waitlist__label">Early access</p>
+          <h2 class="waitlist__title">Be first in line.</h2>
+          <p class="waitlist__description">
+            Add your details below and we'll reach out when your access is
+            ready.
+          </p>
+          <p class="waitlist__reassurance">
+            Only email when your spot is ready. No newsletters, no spam.
+          </p>
+        </div>
+
+        <div class="waitlist__form">
           <iframe
             src="https://tally.so/r/obWWkx"
             title="OrbaGrace Waitlist"
             loading="lazy"
           ></iframe>
-
         </div>
+      </div>
+    </section>
 
+    <!-- 8. FAQ -->
+    <section class="faq">
+      <div class="faq__content">
+        <p class="faq__label">Questions</p>
+        <h2 class="faq__title">The short answers.</h2>
+
+        <dl class="faq__list">
+          <div class="faq__item">
+            <dt class="faq__question">Do my clients need an account?</dt>
+            <dd class="faq__answer">
+              No. They click your link, pick a time, and book &mdash; nothing to sign up for.
+            </dd>
+          </div>
+
+          <div class="faq__item">
+            <dt class="faq__question">What if I stop paying?</dt>
+            <dd class="faq__answer">
+              Your data stays. The account goes read-only &mdash; nothing is deleted.
+            </dd>
+          </div>
+
+          <div class="faq__item">
+            <dt class="faq__question">Who is behind it?</dt>
+            <dd class="faq__answer">
+              A product of
+              <a href="https://godsgraceultra.com" class="faq__link" target="_blank" rel="noopener">GOD'S GRACE ULTRA</a>.
+            </dd>
+          </div>
+        </dl>
       </div>
     </section>
 
   </main>
 
+  <!-- 9. FOOTER -->
+  <footer class="footer">
+    <div class="footer__main">
+      <a href="#top" class="footer__wordmark">OrbaGrace</a>
+      <p class="footer__tagline">
+        Everything your business needs, connected.
+      </p>
+    </div>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-
-      <div class="footer-brand">
-
-        <strong>
-          OrbaGrace
-        </strong>
-
-        <p>
-          A product of GOD'S GRACE ULTRA.
-        </p>
-
-      </div>
-
-      <span>
-        © 2026 OrbaGrace
-      </span>
-
+    <div class="footer__bottom">
+      <p>
+        A product of
+        <a href="https://godsgraceultra.com" class="footer__link" target="_blank" rel="noopener">
+          GOD'S GRACE ULTRA
+        </a>.
+      </p>
+      <p>&copy; 2026 OrbaGrace. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const navbar = document.getElementById('navbar');
+      const onScroll = () => {
+        if (window.scrollY > 40) navbar.classList.add('navbar--scrolled');
+        else navbar.classList.remove('navbar--scrolled');
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
 
 </body>
 </html>
