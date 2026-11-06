@@ -4,82 +4,526 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="OrbaGrace — bookings, payments, staff and money in one place. Join the waitlist for early access." />
-  <meta name="theme-color" content="#f7f5ef" />
-  <title>OrbaGrace — Join the waitlist</title>
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>OrbaGrace — Everything your business needs, connected.</title>
 
-  <!-- Favicon (simplified mark — reads at any size) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='22' fill='%23f7f5ef'/%3E%3C/svg%3E" />
-  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f7f5ef'/%3E%3Ccircle cx='50' cy='50' r='38' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='18' fill='%23f7f5ef'/%3E%3C/svg%3E" />
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='36' fill='%23f7f5ef'/%3E%3Cpath d='M 20 50 Q 50 66 80 50' fill='none' stroke='%230a0a0a' stroke-width='5.5' stroke-linecap='round'/%3E%3C/svg%3E" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="OrbaGrace" />
-  <meta property="og:title" content="OrbaGrace — Run your business. Know where it stands." />
+  <meta property="og:title" content="OrbaGrace — Everything your business needs, connected." />
   <meta property="og:description" content="Bookings, payments, staff and money in one place — so you stop guessing and start growing. Join the waitlist for early access." />
-  <meta property="og:url" content="https://orbagrace.vercel.app/" />
-  <meta property="og:image" content="https://orbagrace.vercel.app/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="OrbaGrace — Run your business. Know where it stands." />
+  <meta property="og:url" content="https://orbagrace.com/" />
+  <meta property="og:image" content="https://orbagrace.com/og-preview.png" />
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="OrbaGrace — Run your business. Know where it stands." />
+  <meta name="twitter:title" content="OrbaGrace — Everything your business needs, connected." />
   <meta name="twitter:description" content="Bookings, payments, staff and money in one place. Join the waitlist for early access." />
-  <meta name="twitter:image" content="https://orbagrace.vercel.app/og-image.png" />
+  <meta name="twitter:image" content="https://orbagrace.com/og-preview.png" />
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+       CSS VARIABLES & RESET
+       ═══════════════════════════════════════════════════════════ */
+    :root {
+      --bg-black: #0a0a0a;
+      --bg-surface: #111111;
+      --text-cream: #f7f5ef;
+      --text-muted: #888888;
+      --border-subtle: #222222;
+      --border-hover: #444444;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: var(--text-cream);
+      font-family: var(--font-family);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       NAVBAR
+       ═══════════════════════════════════════════════════════════ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+      padding: 20px 24px;
+    }
+
+    .navbar--scrolled {
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 16px 24px;
+    }
+
+    .navbar__bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar__brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+    }
+
+    .navbar__brand::before {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='36' fill='%23f7f5ef'/%3E%3Cpath d='M 20 50 Q 50 66 80 50' fill='none' stroke='%230a0a0a' stroke-width='5.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-size: cover;
+    }
+
+    .navbar__cta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 10px 20px;
+      background: var(--text-cream);
+      color: var(--bg-black);
+      border-radius: 999px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .navbar__cta:hover {
+      transform: scale(1.02);
+      opacity: 0.9;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+      text-align: center;
+      /* Premium CSS-only background (replaces the video) */
+      background: radial-gradient(circle at 50% 0%, rgba(50,50,50,0.4) 0%, rgba(10,10,10,1) 70%);
+    }
+
+    .hero__content {
+      max-width: 800px;
+      z-index: 2;
+    }
+
+    .hero__title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin-bottom: 24px;
+    }
+
+    .hero__description {
+      font-size: clamp(1.1rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .hero__cta {
+      display: inline-block;
+      padding: 16px 32px;
+      background: var(--text-cream);
+      color: var(--bg-black);
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 999px;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .hero__cta:hover {
+      transform: translateY(-2px);
+      background: #ffffff;
+    }
+
+    .hero__note {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       PROBLEM SECTION
+       ═══════════════════════════════════════════════════════════ */
+    .problem {
+      padding: 100px 24px;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-black);
+    }
+
+    .problem__content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .problem__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .problem__statement {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 32px;
+    }
+
+    .problem__punch {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+    }
+
+    .problem__punch em {
+      color: var(--text-cream);
+      font-style: italic;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       CHANGES (Features) SECTION
+       ═══════════════════════════════════════════════════════════ */
+    .changes {
+      padding: 100px 24px;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .changes__content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .changes__head {
+      margin-bottom: 60px;
+    }
+
+    .changes__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .changes__title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+    }
+
+    .changes__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .change {
+      padding: 32px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      background: var(--bg-black);
+      transition: border-color 0.3s ease;
+    }
+
+    .change:hover {
+      border-color: var(--border-hover);
+    }
+
+    .change__number {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .change__title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .change__text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       WAITLIST SECTION
+       ═══════════════════════════════════════════════════════════ */
+    .waitlist {
+      padding: 120px 24px;
+      background: var(--bg-black);
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+    }
+
+    .waitlist__content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .waitlist__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .waitlist__title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+    }
+
+    .waitlist__description {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .waitlist__reassurance {
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .waitlist__form {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 10px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .waitlist__form iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       FAQ SECTION
+       ═══════════════════════════════════════════════════════════ */
+    .faq {
+      padding: 100px 24px;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .faq__content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .faq__title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      margin-bottom: 48px;
+    }
+
+    .faq__list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .faq__item {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .faq__item:last-child {
+      border-bottom: none;
+    }
+
+    .faq__question {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .faq__answer {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .faq__link {
+      color: var(--text-cream);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════ */
+    .footer {
+      padding: 60px 24px 40px;
+      background: var(--bg-black);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .footer__main {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .footer__wordmark {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+    }
+
+    .footer__tagline {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .footer__bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .footer__link {
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+    }
+
+    .footer__link:hover {
+      color: var(--text-cream);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVE DESIGN
+       ═══════════════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .navbar__brand { font-size: 1.1rem; }
+      .navbar__cta { padding: 8px 16px; font-size: 0.8rem; }
+      
+      .problem__statement { font-size: 1.8rem; }
+      .changes__title, .waitlist__title, .faq__title { font-size: 2rem; }
+      
+      .changes__grid { grid-template-columns: 1fr; }
+      .change { padding: 24px; }
+      
+      .waitlist__form iframe { height: 500px; }
+      
+      .footer__bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 
+  <!-- NAVBAR -->
   <header class="navbar" id="navbar">
     <div class="navbar__bar">
       <a href="#top" class="navbar__brand">OrbaGrace</a>
       <a href="#waitlist" class="navbar__cta">
         <span>Join waitlist</span>
-        <span class="navbar__cta-arrow" aria-hidden="true">&#8599;</span>
       </a>
     </div>
   </header>
 
   <main id="top">
-
-    <!-- 1. HERO -->
+    <!-- HERO -->
     <section class="hero">
-      <div class="hero__background" aria-hidden="true">
-        <video
-          class="hero__video"
-          src="/owner-in-control.mp4"
-          autoplay
-          muted
-          loop
-          playsinline
-        ></video>
-        <div class="hero__video-overlay"></div>
-      </div>
-
       <div class="hero__content">
         <h1 class="hero__title">
-          Run your business.<br />Know where it stands.
+          Everything your business<br />needs, connected.
         </h1>
-
         <p class="hero__description">
-          Bookings, payments, staff and money in one place &mdash; so you stop
-          guessing and start growing.
+          Bookings, payments, staff, and money in one place — so you stop guessing and start growing.
         </p>
-
         <a href="#waitlist" class="hero__cta">Join the waitlist</a>
-
-        <p class="hero__note">
-          OrbaGrace is launching soon.
-        </p>
+        <p class="hero__note">OrbaGrace is launching soon.</p>
       </div>
     </section>
 
-    <!-- 2. THE PROBLEM -->
+    <!-- THE PROBLEM -->
     <section class="problem">
       <div class="problem__content">
         <p class="problem__label">The problem</p>
@@ -89,28 +533,25 @@
           Staff figures live in your head.
         </h2>
         <p class="problem__punch">
-          So when someone asks <em>&ldquo;How's business?&rdquo;</em>, you're not sure.
+          So when someone asks <em>"How's business?"</em>, you're not sure.
         </p>
       </div>
     </section>
 
-    <!-- 3. WHAT CHANGES -->
+    <!-- WHAT CHANGES -->
     <section class="changes">
       <div class="changes__content">
-
         <div class="changes__head">
           <p class="changes__label">What changes</p>
           <h2 class="changes__title">Four things, immediately.</h2>
         </div>
 
         <div class="changes__grid">
-
           <article class="change">
             <p class="change__number">01</p>
             <h3 class="change__title">Clients book themselves.</h3>
             <p class="change__text">
-              Share one link and they pick a time &mdash; no back-and-forth,
-              no double bookings.
+              Share one link and they pick a time — no back-and-forth, no double bookings.
             </p>
           </article>
 
@@ -126,8 +567,7 @@
             <p class="change__number">03</p>
             <h3 class="change__title">Your team's pay is worked out for you.</h3>
             <p class="change__text">
-              Commission calculated from the work they actually did &mdash;
-              not from guesses.
+              Commission calculated from the work they actually did — not from guesses.
             </p>
           </article>
 
@@ -135,78 +575,21 @@
             <p class="change__number">04</p>
             <h3 class="change__title">Ask your business a question.</h3>
             <p class="change__text">
-              Get a plain-English answer from your own numbers, plus a weekly
-              report every Monday.
+              Get a plain-English answer from your own numbers, plus a weekly report every Monday.
             </p>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- 4. WHO IT'S FOR -->
-    <section class="audience">
-      <div class="audience__content">
-        <p class="audience__label">Who it's for</p>
-        <h2 class="audience__title">
-          Salons, spas, clinics, barbershops and studios &mdash; anywhere
-          clients book appointments.
-        </h2>
-      </div>
-    </section>
-
-    <!-- 5. HOW IT WORKS -->
-    <section class="how">
-      <div class="how__content">
-
-        <div class="how__head">
-          <p class="how__label">How it works</p>
-          <h2 class="how__title">Three steps.</h2>
-        </div>
-
-        <ol class="how__steps">
-          <li class="how__step">
-            <span class="how__step-number">1</span>
-            <div class="how__step-body">
-              <h3 class="how__step-title">Set up your business and team.</h3>
-              <p class="how__step-text">
-                Add your branches, staff, services and prices.
-              </p>
-            </div>
-          </li>
-
-          <li class="how__step">
-            <span class="how__step-number">2</span>
-            <div class="how__step-body">
-              <h3 class="how__step-title">Share your booking link.</h3>
-              <p class="how__step-text">
-                Your clients pick a time and get booked &mdash; automatically.
-              </p>
-            </div>
-          </li>
-
-          <li class="how__step">
-            <span class="how__step-number">3</span>
-            <div class="how__step-body">
-              <h3 class="how__step-title">Run everything from one dashboard.</h3>
-              <p class="how__step-text">
-                Bookings, money, staff, and insight &mdash; all in one place.
-              </p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- 7. WAITLIST -->
+    <!-- WAITLIST -->
     <section class="waitlist" id="waitlist">
       <div class="waitlist__content">
         <div class="waitlist__head">
           <p class="waitlist__label">Early access</p>
           <h2 class="waitlist__title">Be first in line.</h2>
           <p class="waitlist__description">
-            Add your details below and we'll reach out when your access is
-            ready.
+            Add your details below and we'll reach out when your access is ready.
           </p>
           <p class="waitlist__reassurance">
             Only email when your spot is ready. No newsletters, no spam.
@@ -223,7 +606,7 @@
       </div>
     </section>
 
-    <!-- 8. FAQ -->
+    <!-- FAQ -->
     <section class="faq">
       <div class="faq__content">
         <p class="faq__label">Questions</p>
@@ -233,31 +616,29 @@
           <div class="faq__item">
             <dt class="faq__question">Do my clients need an account?</dt>
             <dd class="faq__answer">
-              No. They click your link, pick a time, and book &mdash; nothing to sign up for.
+              No. They click your link, pick a time, and book — nothing to sign up for.
             </dd>
           </div>
 
           <div class="faq__item">
             <dt class="faq__question">What if I stop paying?</dt>
             <dd class="faq__answer">
-              Your data stays. The account goes read-only &mdash; nothing is deleted.
+              Your data stays. The account goes read-only — nothing is deleted.
             </dd>
           </div>
 
           <div class="faq__item">
             <dt class="faq__question">Who is behind it?</dt>
             <dd class="faq__answer">
-              A product of
-              <a href="https://godsgraceultra.com" class="faq__link" target="_blank" rel="noopener">GOD'S GRACE ULTRA</a>.
+              A product of <a href="https://godsgraceultra.com" class="faq__link" target="_blank" rel="noopener">GOD'S GRACE ULTRA</a>.
             </dd>
           </div>
         </dl>
       </div>
     </section>
-
   </main>
 
-  <!-- 9. FOOTER -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__main">
       <a href="#top" class="footer__wordmark">OrbaGrace</a>
@@ -268,15 +649,13 @@
 
     <div class="footer__bottom">
       <p>
-        A product of
-        <a href="https://godsgraceultra.com" class="footer__link" target="_blank" rel="noopener">
-          GOD'S GRACE ULTRA
-        </a>.
+        A product of <a href="https://godsgraceultra.com" class="footer__link" target="_blank" rel="noopener">GOD'S GRACE ULTRA</a>.
       </p>
       <p>&copy; 2026 OrbaGrace. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- SCROLL SCRIPT -->
   <script>
     (function () {
       const navbar = document.getElementById('navbar');
